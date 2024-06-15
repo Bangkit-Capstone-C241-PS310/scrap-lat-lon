@@ -276,6 +276,12 @@ HALIM = [
     "Ulujami",
 ]
 
+locations = {
+    "Tanjung Priok": TANJUNG_PRIOK,
+    "Kemayoran": KEMAYORAN,
+    "Halim": HALIM,
+}
+
 
 def get_lat_lng(location):
     url = f"https://maps.googleapis.com/maps/api/geocode/json?address={location}&key={API_KEY}"
@@ -290,7 +296,7 @@ def get_lat_lng(location):
 
 location_coordinates = {}
 
-for location in locations:
+for location_name, location in locations.items():
     lat, lng = get_lat_lng(location)
     if lat is not None and lng is not None:
         location_coordinates[location] = (lat, lng)
