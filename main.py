@@ -284,7 +284,8 @@ locations = {
 
 
 def get_lat_lng(location):
-    url = f"https://maps.googleapis.com/maps/api/geocode/json?address={location}&key={API_KEY}"
+    query = f"{location}, Jakarta, Indonesia"
+    url = f"https://maps.googleapis.com/maps/api/geocode/json?address={query}&key={API_KEY}"
     response = requests.get(url)
     if response.status_code == 200:
         result = response.json().get("results")
