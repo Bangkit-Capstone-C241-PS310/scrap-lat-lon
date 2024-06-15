@@ -311,6 +311,8 @@ for location_name, locations in locations.items():
 
 for location_name, locations in location_coordinates.items():
     print(f"Location: {location_name}")
-    for location, coordinates in locations.items():
-        print(f"{location}: {coordinates}")
+
+    with open(f"{location_name}.txt", "w") as f:
+        for location, coordinates in locations.items():
+            f.write(f"{location}: {coordinates}\n")
     print()
