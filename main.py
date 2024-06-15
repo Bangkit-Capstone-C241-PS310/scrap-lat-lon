@@ -294,14 +294,20 @@ def get_lat_lng(location):
     return None, None
 
 
-location_coordinates = {}
+location_coordinates = {
+    "Tanjung Priok": {},
+    "Kemayoran": {},
+    "Halim": {},
+}
 
-for location_name, location in locations.items():
-    lat, lng = get_lat_lng(location)
-    if lat is not None and lng is not None:
-        location_coordinates[location] = (lat, lng)
-    else:
-        location_coordinates[location] = "Coordinates not found"
+for location_name, locations in locations.items():
+    for location in locations:
+        lat, lng = get_lat_lng(location)
+
+        if lat is not None and lng is not None:
+            location_coordinates[location_name][location] = (lat, lng)
+        else:
+            location_coordinates[location_name][location] = "Coordinates not found"
 
 for location, coordinates in location_coordinates.items():
     print(f"{location}: {coordinates}")
