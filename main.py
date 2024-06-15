@@ -309,5 +309,8 @@ for location_name, locations in locations.items():
         else:
             location_coordinates[location_name][location] = "Coordinates not found"
 
-for location, coordinates in location_coordinates.items():
-    print(f"{location}: {coordinates}")
+for location_name, locations in location_coordinates.items():
+    print(f"Location: {location_name}")
+    for location, coordinates in locations.items():
+        print(f"{location}: {coordinates}")
+    print()
